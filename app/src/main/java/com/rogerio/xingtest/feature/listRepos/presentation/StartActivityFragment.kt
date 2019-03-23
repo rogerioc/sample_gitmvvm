@@ -58,6 +58,10 @@ class StartActivityFragment : Fragment() {
         viewModel.errorMessageEvent.observe(this, Observer {
             Toast.makeText(this@StartActivityFragment.context, getString(it.error),Toast.LENGTH_LONG).show()
         })
+
+        viewModel.showLoading.observe(this, Observer {
+
+        })
     }
 
     override fun onStart() {

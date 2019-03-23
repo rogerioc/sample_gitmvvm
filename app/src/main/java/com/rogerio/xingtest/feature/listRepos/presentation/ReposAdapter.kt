@@ -13,10 +13,20 @@ import com.rogerio.xingtest.feature.listRepos.presentation.model.GitRepoViewEnti
 class ReposAdapter: RecyclerView.Adapter<ReposAdapter.ViewHolder>() {
 
     private var reposList: List<GitRepoViewEntity> = emptyList()
+    var loading: Int = 0
+    var repo: Int = 1
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-        RepoViewHolder(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return if (viewType == loading) {
+            LoadingViewHolder(parent)
+        } else {
+            RepoViewHolder(parent)
+        }
+    }
 
+
+    override fun getItemViewType(position: Int) =
+        if (reposList.get(position).loading) loading else repo
 
     override fun getItemCount(): Int = reposList.size
 
@@ -57,4 +67,14 @@ class ReposAdapter: RecyclerView.Adapter<ReposAdapter.ViewHolder>() {
         }
     }
 
+    class LoadingViewHolder(
+        private val parent: ViewGroup,
+        view: View = LayoutInflater.from(parent.context).inflate(
+            R.layout.item_loading,
+            parent,
+            false
+        )) : ViewHolder(view)
+
 }
+
+

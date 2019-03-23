@@ -19,14 +19,25 @@ class StartViewModel(private val interactor: ReposInteractor): BaseViewModel(), 
     private val _errorMessageEvent = MutableLiveData<InfoError>()
     val errorMessageEvent: LiveData<InfoError>
         get() = _errorMessageEvent
+    private val _loadind = MutableLiveData<Boolean>()
+    val showLoading:  LiveData<Boolean>
+        get() = _loadind
+
+    private var loadingPosition: Int = 0
 
     fun start() {
         fetchRepos()
     }
 
-
-    private fun showLoading() {
-
+    private fun showLoading(loading: Boolean= true) {
+        this.loading = loading
+        if(loading) {
+            this.repositories.add(GitRepoViewEntity(loading = true))
+            loadingPosition = this.repositories.size - 1
+        } else {
+            this.repositories.removeAt(loadingPosition)
+            loadingPosition = 0
+        }
     }
 
     fun fetchRepos() {
@@ -40,12 +51,12 @@ class StartViewModel(private val interactor: ReposInteractor): BaseViewModel(), 
                     .subscribe({
                         Timber.d(it.toString(), "Repos List")
                         this.repositories.addAll(it)
-                        loading = false
+                        showLoading(false)
                         notifyChange()
                     }, {
                         Timber.e(it.toString(), "Repos List error")
                         _errorMessageEvent.postValue(InfoError( error = R.string.default_error))
-                        loading = false
+                        showLoading(false)
                     })
             )
         }
