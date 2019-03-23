@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--<data>-->
+        <!--<variable-->
+            <!--name="repositorieView"-->
+            <!--type="com.rogeriocs.githublist.models.viewModels.RepositorieViewModel" />-->
+
+    <!--</data>-->
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<LinearLayout
+    android:id="@+id/repositorieData"
+    android:orientation="horizontal"
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<TextView
+    android:textColor="@color/colorPrimaryDark"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="24sp"/>
+    <TextView
+        android:ellipsize="end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textSize="16sp"/>
+    </LinearLayout>
+</LinearLayout>
+    <LinearLayout
+        android:id="@+id/ownerProfile"
+        android:orientation="vertical"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+           />
+        <TextView
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/colorPrimaryDark"
+            android:text=""
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"/>
+    </LinearLayout>
+    </LinearLayout>
+</layout>
