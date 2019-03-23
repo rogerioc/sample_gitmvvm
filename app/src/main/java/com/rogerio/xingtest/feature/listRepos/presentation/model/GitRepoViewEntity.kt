@@ -5,6 +5,9 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class GitRepoViewEntity(
-    val name: String = ""
+    val name: String = "",
+    val ownerName: String = "",
+    val desciption: String = "",
+    val flag: Boolean = false
 ): Parcelable
 

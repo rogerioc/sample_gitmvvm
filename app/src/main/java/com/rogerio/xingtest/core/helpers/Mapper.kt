@@ -4,5 +4,9 @@ import com.rogerio.xingtest.feature.listRepos.presentation.model.GitRepoViewEnti
 import com.rogerio.xingtest.services.models.GitRepo
 
 object Mapper {
-    public fun getGitViewEntity(item: GitRepo): GitRepoViewEntity = GitRepoViewEntity(item.fullName ?: "")
+    public fun getGitViewEntity(item: GitRepo): GitRepoViewEntity = GitRepoViewEntity(item.fullName ?: "",
+        item.owner?.login ?: "",
+        item.description ?: "",
+         item.fork ?: true
+        )
 }
