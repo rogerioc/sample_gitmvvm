@@ -1,40 +1,42 @@
 package com.rogerio.xingtest.services.models
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 data class Owner(@Json(name = "gists_url")
-                 val gistsUrl: String = "",
+                 val gistsUrl: String? = "",
                  @Json(name = "repos_url")
-                 val reposUrl: String = "",
+                 val reposUrl: String? = "",
                  @Json(name = "following_url")
-                 val followingUrl: String = "",
+                 val followingUrl: String? = "",
                  @Json(name = "starred_url")
-                 val starredUrl: String = "",
+                 val starredUrl: String? = "",
                  @Json(name = "login")
-                 val login: String = "",
+                 val login: String? = "",
                  @Json(name = "followers_url")
-                 val followersUrl: String = "",
+                 val followersUrl: String? = "",
                  @Json(name = "type")
-                 val type: String = "",
+                 val type: String? = "",
                  @Json(name = "url")
-                 val url: String = "",
+                 val url: String? = "",
                  @Json(name = "subscriptions_url")
-                 val subscriptionsUrl: String = "",
+                 val subscriptionsUrl: String? = "",
                  @Json(name = "received_events_url")
-                 val receivedEventsUrl: String = "",
+                 val receivedEventsUrl: String? = "",
                  @Json(name = "avatar_url")
-                 val avatarUrl: String = "",
+                 val avatarUrl: String? = "",
                  @Json(name = "events_url")
-                 val eventsUrl: String = "",
+                 val eventsUrl: String? = "",
                  @Json(name = "html_url")
-                 val htmlUrl: String = "",
+                 val htmlUrl: String? = "",
                  @Json(name = "site_admin")
-                 val siteAdmin: Boolean = false,
+                 val siteAdmin: Boolean? = false,
                  @Json(name = "id")
                  val id: Int = 0,
                  @Json(name = "gravatar_id")
-                 val gravatarId: String = "",
+                 val gravatarId: String? = "",
                  @Json(name = "node_id")
-                 val nodeId: String = "",
+                 val nodeId: String? = "",
                  @Json(name = "organizations_url")
-                 val organizationsUrl: String = "")
+                 val organizationsUrl: String? = "")

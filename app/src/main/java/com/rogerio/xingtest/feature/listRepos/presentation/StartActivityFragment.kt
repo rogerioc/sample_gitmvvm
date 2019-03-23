@@ -4,16 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders.of
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.rogerio.xingtest.R
 import com.rogerio.xingtest.core.BaseViewModelFactory
 import com.rogerio.xingtest.core.ServiceFactory
+import com.rogerio.xingtest.databinding.FragmentStartBinding
+import kotlinx.android.synthetic.main.fragment_start.*
 
 /**
  * A placeholder fragment containing a simple view.
  */
 class StartActivityFragment : Fragment() {
+    private lateinit var binding: FragmentStartBinding
+
     private val interactor: ReposInteractor by lazy {
         ReposInteractor(ServiceFactory.repositoryFactory())
     }
@@ -29,12 +36,25 @@ class StartActivityFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_start, container, false)
+        binding.setLifecycleOwner(this)
+        binding.viewModel = viewModel
+        return binding.root
 
-        return inflater.inflate(R.layout.fragment_start, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel.load()
+        val layoutManager = LinearLayoutManager(context)
+        reposlist.layoutManager = layoutManager
+        reposlist.hasFixedSize()
+        reposlist.adapter = ReposAdapter()
+        reposlist.addItemDecoration(DividerItemDecoration(context, layoutManager.orientation))
     }
 
     override fun onStart() {
         super.onStart()
-        viewModel.load()
+
     }
 }
