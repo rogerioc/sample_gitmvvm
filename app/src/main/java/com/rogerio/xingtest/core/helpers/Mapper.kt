@@ -7,6 +7,8 @@ object Mapper {
     public fun getGitViewEntity(item: GitRepo): GitRepoViewEntity = GitRepoViewEntity(item.fullName ?: "",
         item.owner?.login ?: "",
         item.description ?: "",
-         item.fork ?: true
+         item.fork ?: true,
+         ownerUrl = item.owner.htmlUrl ?: "",
+         repoUrl = item.htmlUrl ?: ""
         )
 }

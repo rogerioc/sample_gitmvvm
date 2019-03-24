@@ -9,6 +9,8 @@ data class GitRepoViewEntity(
     val ownerName: String = "",
     val desciption: String = "",
     val flag: Boolean = false,
-    val loading: Boolean = false
+    val loading: Boolean = false,
+    val ownerUrl: String = "",
+    val repoUrl: String = ""
 ): Parcelable
 

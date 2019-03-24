@@ -1,4 +1,4 @@
-package com.rogerio.xingtest
+package com.rogerio.xingtest.presentation
 
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
@@ -6,7 +6,6 @@ import com.rogerio.xingtest.feature.listRepos.presentation.ReposInteractor
 import com.rogerio.xingtest.feature.listRepos.presentation.model.GitRepoViewEntity
 import com.rogerio.xingtest.helpers.Factory
 import com.rogerio.xingtest.services.repository.GitReposDataSource
-import com.rogerio.xingtest.services.repository.GitReposRepository
 import io.reactivex.Single
 import org.junit.Before
 import org.junit.Test
@@ -21,6 +20,8 @@ class GitReposInteractorTests {
 
     @Mock
     private lateinit var reposRepository: GitReposDataSource
+
+
 
     @Before
     fun setUp() {
@@ -42,6 +43,23 @@ class GitReposInteractorTests {
             .assertValue {
                 it.size == 1
                 it is List<GitRepoViewEntity>
+            }
+
+        verify(reposRepository).getRepos(page, size)
+    }
+
+    @Test
+    fun getErrorReposByInteractor() {
+        val page = 1
+        val size = 1
+        whenever(reposRepository.getRepos(page, size)).thenReturn(
+            null
+        )
+
+        interactor.getRepos(page, size)
+            .test()
+            .assertError {
+                it != null
             }
 
         verify(reposRepository).getRepos(page, size)

@@ -15,6 +15,7 @@ class ReposAdapter: RecyclerView.Adapter<ReposAdapter.ViewHolder>() {
     private var reposList: List<GitRepoViewEntity> = emptyList()
     var loading: Int = 0
     var repo: Int = 1
+    var onClickRepo: ((GitRepoViewEntity) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return if (viewType == loading) {
@@ -33,6 +34,9 @@ class ReposAdapter: RecyclerView.Adapter<ReposAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (holder is RepoViewHolder && reposList.size > position) {
             holder.bind(reposList[position])
+            holder.itemView.setOnClickListener {
+                onClickRepo?.invoke(reposList[position])
+            }
         }
     }
 
@@ -50,6 +54,7 @@ class ReposAdapter: RecyclerView.Adapter<ReposAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
+
     abstract class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     class RepoViewHolder(
@@ -63,7 +68,7 @@ class ReposAdapter: RecyclerView.Adapter<ReposAdapter.ViewHolder>() {
     ) : ViewHolder(binding.root) {
         fun bind(item: GitRepoViewEntity) {
             binding.viewData = item
-            
+
         }
     }
 
@@ -77,4 +82,6 @@ class ReposAdapter: RecyclerView.Adapter<ReposAdapter.ViewHolder>() {
 
 }
 
+fun RecyclerView.onClickItem(onClick: (GitRepoViewEntity) -> Unit) {
 
+}

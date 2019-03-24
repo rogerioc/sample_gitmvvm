@@ -12,16 +12,17 @@ import timber.log.Timber
 
 class StartViewModel(private val interactor: ReposInteractor): BaseViewModel(), Observable {
 
-    public var repositories: ArrayList<GitRepoViewEntity> =  ArrayList()
+    var repositories: ArrayList<GitRepoViewEntity> =  ArrayList()
+
     private var page: Int = 0
     private var loading: Boolean = false
 
     private val _errorMessageEvent = MutableLiveData<InfoError>()
     val errorMessageEvent: LiveData<InfoError>
         get() = _errorMessageEvent
-    private val _loadind = MutableLiveData<Boolean>()
-    val showLoading:  LiveData<Boolean>
-        get() = _loadind
+    private val _seledtGitRepo = MutableLiveData<GitRepoViewEntity>()
+    val selectedGitRepo: LiveData<GitRepoViewEntity>
+        get() = _seledtGitRepo
 
     private var loadingPosition: Int = 0
 
@@ -60,5 +61,9 @@ class StartViewModel(private val interactor: ReposInteractor): BaseViewModel(), 
                     })
             )
         }
+    }
+
+    fun clickOnGitRepo(gitRepo: GitRepoViewEntity) {
+        _seledtGitRepo.postValue(gitRepo)
     }
 }

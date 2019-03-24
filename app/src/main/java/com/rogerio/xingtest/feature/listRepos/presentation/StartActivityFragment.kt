@@ -16,6 +16,7 @@ import com.rogerio.xingtest.core.BaseViewModelFactory
 import com.rogerio.xingtest.core.ServiceFactory
 import com.rogerio.xingtest.core.customs.endless
 import com.rogerio.xingtest.databinding.FragmentStartBinding
+import com.rogerio.xingtest.feature.listRepos.presentation.dialog.UrlChooseDialog
 import kotlinx.android.synthetic.main.fragment_start.*
 
 /**
@@ -59,9 +60,14 @@ class StartActivityFragment : Fragment() {
             Toast.makeText(this@StartActivityFragment.context, getString(it.error),Toast.LENGTH_LONG).show()
         })
 
-        viewModel.showLoading.observe(this, Observer {
-
+        viewModel.selectedGitRepo.observe(this, Observer {
+            val urlChooseDialog = UrlChooseDialog.newInstance(it)
+            urlChooseDialog.show(fragmentManager, UrlChooseDialog.DIALOG_TAG)
         })
+
+        (reposlist.adapter as ReposAdapter).onClickRepo = {
+            viewModel.clickOnGitRepo(it)
+        }
     }
 
     override fun onStart() {
