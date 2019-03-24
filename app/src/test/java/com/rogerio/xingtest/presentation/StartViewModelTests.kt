@@ -1,5 +1,6 @@
 package com.rogerio.xingtest.presentation
 
+ import android.content.Context
  import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.nhaarman.mockitokotlin2.verify
@@ -43,9 +44,12 @@ class StartViewModelTests {
 
     private lateinit var viewModel: StartViewModel
 
+    @Mock
+    private lateinit var context: Context
+
     @Before
     fun setUp() {
-        interactor = ReposInteractor(repository)
+        interactor = ReposInteractor(repository,context)
         viewModel = StartViewModel(interactor)
     }
 

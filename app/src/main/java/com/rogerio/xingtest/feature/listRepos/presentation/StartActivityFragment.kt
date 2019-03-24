@@ -26,7 +26,7 @@ class StartActivityFragment : Fragment() {
     private lateinit var binding: FragmentStartBinding
 
     private val interactor: ReposInteractor by lazy {
-        ReposInteractor(ServiceFactory.repositoryFactory())
+        ReposInteractor(ServiceFactory.repositoryFactory(),activity!!)
     }
 
     private val viewModel: StartViewModel by lazy {

@@ -1,5 +1,6 @@
 package com.rogerio.xingtest.presentation
 
+import android.content.Context
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import com.rogerio.xingtest.feature.listRepos.presentation.ReposInteractor
@@ -11,6 +12,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
+import org.mockito.Mockito.mock
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
@@ -21,11 +23,14 @@ class GitReposInteractorTests {
     @Mock
     private lateinit var reposRepository: GitReposDataSource
 
-
+    @Mock
+    private lateinit var context: Context
 
     @Before
     fun setUp() {
-        interactor = ReposInteractor(reposRepository)
+        context = mock(Context::class.java)
+
+        interactor = ReposInteractor(reposRepository,context)
     }
 
     @Test

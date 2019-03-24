@@ -1,7 +1,5 @@
 package com.rogerio.xingtest.feature.listRepos.presentation.dialog
 
-import android.content.Intent
-import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.rogerio.xingtest.core.BaseViewModel
