@@ -17,40 +17,28 @@ class ReposInteractor (private val reposDataSource: GitReposDataSource,
                        private val context: Context) {
 
     fun getRepos(page: Int, size: Int): Single<List<GitRepoViewEntity>> =
-        Single
-        .just(Pair(page,size))
-        .flatMap {
-            reposDataSource.getRepos(it.first, it.second)
-        }.map (::mapperToView)
-        .flatMap {
-            //var reposEntity = it.map(::gitViewEntityToGitRepoEntity)
-            //DataBase.getDatabase(context).repoDao().insertAll(reposEntity)
-            Single.just(it)
-        }
-        .onErrorResumeNext {
-            Single.error(it)
-        }
-//        DataBase.getDatabase(context).repoDao().get(page, size)
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .map(::mapperRepoToView)
-//            .flatMap {
-//                Single.just(it)
-//            }.onErrorResumeNext(
-//                Single
-//                .just(Pair(page,size))
-//                .flatMap {
-//                    reposDataSource.getRepos(it.first, it.second)
-//                }.map (::mapperToView)
-//                .flatMap {
-//                    var reposEntity = it.map(::gitViewEntityToGitRepoEntity)
-//                    DataBase.getDatabase(context).repoDao().insertAll(reposEntity)
-//                    Single.just(it)
-//                }
-//                .onErrorResumeNext {
-//                    Single.error(it)
-//                }
-//            )
+        DataBase.getDatabase(context).repoDao().get((page-1)*size, size)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .map(::mapperRepoToView)
+            .flatMap {
+                if(it.isEmpty()) {
+                    Single
+                        .just(Pair(page,size))
+                        .flatMap {
+                            reposDataSource.getRepos(it.first, it.second)
+                        }.map (::mapperToView)
+                        .flatMap {
+                            var reposEntity = it.map(::gitViewEntityToGitRepoEntity)
+                            DataBase.getDatabase(context).repoDao().insertAll(reposEntity)
+                            Single.just(it)
+                        }
+                } else {
+                    Single.just(it)
+                }
+            }.onErrorResumeNext {
+                Single.error(it)
+            }
 
     private fun mapperToView(items: List<GitRepo>): List<GitRepoViewEntity> = items
         .map {

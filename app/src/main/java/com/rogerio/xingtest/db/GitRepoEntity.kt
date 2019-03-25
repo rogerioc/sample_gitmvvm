@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class GitRepoEntity(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
     val name: String = "",
     val ownerName: String = "",
@@ -15,3 +15,4 @@ data class GitRepoEntity(
     val ownerUrl: String = "",
     val repoUrl: String = ""
 )
+

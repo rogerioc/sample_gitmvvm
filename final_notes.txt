@@ -1,2 +1,2 @@
 1. To my Endless list I based on https://github.com/ciandt-mobile/android-recyclerview-binding
-2. I had tryied use Room to cache but I didn't sync with network. I could think how to fix. 
+2. I could use room but I hadn't time to fix repository unit tests. :(

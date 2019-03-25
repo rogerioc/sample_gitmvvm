@@ -56,8 +56,8 @@ class StartViewModel(private val interactor: ReposInteractor): BaseViewModel(), 
                         notifyChange()
                     }, {
                         Timber.e(it.toString(), "Repos List error")
-                        _errorMessageEvent.postValue(InfoError( error = R.string.default_error))
                         showLoading(false)
+                        _errorMessageEvent.postValue(InfoError( error = R.string.default_error))
                     })
             )
         }
