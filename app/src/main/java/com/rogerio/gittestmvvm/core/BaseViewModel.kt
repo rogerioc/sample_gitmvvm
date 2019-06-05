@@ -4,6 +4,7 @@ import androidx.databinding.Observable
 import androidx.databinding.PropertyChangeRegistry
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 
 abstract class BaseViewModel : ViewModel(), Observable {
         var compositeDisposable = CompositeDisposable()
@@ -54,3 +55,8 @@ abstract class BaseViewModel : ViewModel(), Observable {
         }
 }
 
+
+fun Disposable.addTo(viewModel: BaseViewModel): Disposable {
+    viewModel.compositeDisposable.add(this)
+    return this
+}
