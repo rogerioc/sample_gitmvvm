@@ -1,4 +1,4 @@
-package com.rogerio.xingtest.core
+package com.rogerio.gittestmvvm.core
 
 import androidx.databinding.Observable
 import androidx.databinding.PropertyChangeRegistry

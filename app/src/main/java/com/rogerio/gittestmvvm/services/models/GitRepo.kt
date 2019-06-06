@@ -1,4 +1,4 @@
-package com.rogerio.xingtest.services.models
+package com.rogerio.gittestmvvm.services.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

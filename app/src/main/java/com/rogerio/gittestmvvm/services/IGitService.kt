@@ -1,6 +1,6 @@
-package com.rogerio.xingtest.services
+package com.rogerio.gittestmvvm.services
 
-import com.rogerio.xingtest.services.models.GitRepo
+import com.rogerio.gittestmvvm.services.models.GitRepo
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -3,14 +3,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.rogerio.xingtest.feature.listRepos.presentation.dialog.UrlChooseDialogViewModel" />
+            type="com.rogerio.gittestmvvm.feature.listRepos.presentation.dialog.UrlChooseDialogViewModel" />
 
         </data>
 
 <FrameLayout
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.rogerio.xingtest.feature.listRepos.presentation.dialog.UrlChooseDialog">
+             tools:context="com.rogerio.gittestmvvm.feature.listRepos.presentation.dialog.UrlChooseDialog">
 <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -1,4 +1,4 @@
-package com.rogerio.xingtest.feature.listRepos.presentation.dialog
+package com.rogerio.gittestmvvm.feature.listRepos.presentation.dialog
 
 
 import android.content.Intent
@@ -13,10 +13,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.rogerio.xingtest.R
-import com.rogerio.xingtest.core.BaseViewModelFactory
-import com.rogerio.xingtest.databinding.FragmentUrlChooseDialogBinding
-import com.rogerio.xingtest.feature.listRepos.presentation.model.GitRepoViewEntity
+import com.rogerio.gittestmvvm.R
+import com.rogerio.gittestmvvm.core.BaseViewModelFactory
+import com.rogerio.gittestmvvm.databinding.FragmentUrlChooseDialogBinding
+import com.rogerio.gittestmvvm.feature.listRepos.presentation.model.GitRepoViewEntity
 
 
 /**

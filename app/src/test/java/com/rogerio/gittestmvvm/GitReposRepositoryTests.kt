@@ -1,10 +1,11 @@
-package com.rogerio.xingtest
+package com.rogerio.gittestmvvm
 
+import android.content.Context
 import com.nhaarman.mockitokotlin2.whenever
-import com.rogerio.xingtest.helpers.Factory
-import com.rogerio.xingtest.services.IGitService
-import com.rogerio.xingtest.services.repository.GitReposDataSource
-import com.rogerio.xingtest.services.repository.GitReposRepository
+import com.rogerio.gittestmvvm.helpers.Factory
+import com.rogerio.gittestmvvm.services.IGitService
+import com.rogerio.gittestmvvm.services.repository.GitReposDataSource
+import com.rogerio.gittestmvvm.services.repository.GitReposRepository
 import io.reactivex.Single
 import org.junit.Before
 import org.junit.Test
@@ -19,10 +20,12 @@ class GitReposRepositoryTests {
     private lateinit var service: IGitService
 
     private lateinit var repository: GitReposDataSource
+    @Mock
+    private lateinit var context: Context
 
     @Before
     fun setUp() {
-        repository = GitReposRepository(service)
+        repository = GitReposRepository(service, context)
     }
 
     @Test

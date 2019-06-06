@@ -1,4 +1,4 @@
-package com.rogerio.xingtest.db
+package com.rogerio.gittestmvvm.db
 
 import androidx.paging.DataSource
 import androidx.room.*

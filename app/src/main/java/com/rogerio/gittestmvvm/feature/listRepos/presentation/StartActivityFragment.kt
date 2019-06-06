@@ -1,4 +1,4 @@
-package com.rogerio.xingtest.feature.listRepos.presentation
+package com.rogerio.gittestmvvm.feature.listRepos.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,12 +11,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders.of
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rogerio.xingtest.R
-import com.rogerio.xingtest.core.BaseViewModelFactory
-import com.rogerio.xingtest.core.ServiceFactory
-import com.rogerio.xingtest.core.customs.endless
-import com.rogerio.xingtest.databinding.FragmentStartBinding
-import com.rogerio.xingtest.feature.listRepos.presentation.dialog.UrlChooseDialog
+import com.rogerio.gittestmvvm.R
+import com.rogerio.gittestmvvm.core.BaseViewModelFactory
+import com.rogerio.gittestmvvm.core.ServiceFactory
+import com.rogerio.gittestmvvm.core.customs.endless
+import com.rogerio.gittestmvvm.databinding.FragmentStartBinding
+import com.rogerio.gittestmvvm.feature.listRepos.presentation.dialog.UrlChooseDialog
 import kotlinx.android.synthetic.main.fragment_start.*
 
 /**
@@ -26,7 +26,7 @@ class StartActivityFragment : Fragment() {
     private lateinit var binding: FragmentStartBinding
 
     private val interactor: ReposInteractor by lazy {
-        ReposInteractor(ServiceFactory.repositoryFactory(),activity!!)
+        ReposInteractor(ServiceFactory.repositoryFactory(activity!!))
     }
 
     private val viewModel: StartViewModel by lazy {
@@ -57,7 +57,7 @@ class StartActivityFragment : Fragment() {
         reposlist.addItemDecoration(DividerItemDecoration(context, layoutManager.orientation))
         reposlist.endless { viewModel.fetchRepos() }
         viewModel.errorMessageEvent.observe(this, Observer {
-            Toast.makeText(this@StartActivityFragment.context, getString(it.error),Toast.LENGTH_LONG).show()
+            Toast.makeText(this@StartActivityFragment.context, getString(it.error), Toast.LENGTH_LONG).show()
         })
 
         viewModel.selectedGitRepo.observe(this, Observer {

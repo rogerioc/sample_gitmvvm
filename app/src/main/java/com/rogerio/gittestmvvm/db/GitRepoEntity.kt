@@ -1,4 +1,4 @@
-package com.rogerio.xingtest.db
+package com.rogerio.gittestmvvm.db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -9,7 +9,7 @@ data class GitRepoEntity(
     var id: Int = 0,
     val name: String = "",
     val ownerName: String = "",
-    val desciption: String = "",
+    val description: String = "",
     val flag: Boolean = false,
     val loading: Boolean = false,
     val ownerUrl: String = "",

@@ -1,12 +1,12 @@
-package com.rogerio.xingtest.presentation
+package com.rogerio.gittestmvvm.presentation
 
 import android.content.Context
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import com.rogerio.xingtest.feature.listRepos.presentation.ReposInteractor
-import com.rogerio.xingtest.feature.listRepos.presentation.model.GitRepoViewEntity
-import com.rogerio.xingtest.helpers.Factory
-import com.rogerio.xingtest.services.repository.GitReposDataSource
+import com.rogerio.gittestmvvm.feature.listRepos.presentation.ReposInteractor
+import com.rogerio.gittestmvvm.feature.listRepos.presentation.model.GitRepoViewEntity
+import com.rogerio.gittestmvvm.helpers.Factory
+import com.rogerio.gittestmvvm.services.repository.GitReposDataSource
 import io.reactivex.Single
 import org.junit.Before
 import org.junit.Test
@@ -30,7 +30,7 @@ class GitReposInteractorTests {
     fun setUp() {
         context = mock(Context::class.java)
 
-        interactor = ReposInteractor(reposRepository,context)
+        interactor = ReposInteractor(reposRepository)
     }
 
     @Test
@@ -39,7 +39,7 @@ class GitReposInteractorTests {
         val size = 1
         whenever(reposRepository.getRepos(page, size)).thenReturn(
             Single.just(
-                Factory.createRepos()
+                Factory.createReposEntity()
             )
         )
 

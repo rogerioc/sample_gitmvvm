@@ -1,12 +1,12 @@
-package com.rogerio.xingtest.feature.listRepos.presentation
+package com.rogerio.gittestmvvm.feature.listRepos.presentation
 
 import androidx.databinding.Observable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.rogerio.xingtest.R
-import com.rogerio.xingtest.core.BaseViewModel
-import com.rogerio.xingtest.core.InfoError
-import com.rogerio.xingtest.feature.listRepos.presentation.model.GitRepoViewEntity
+import com.rogerio.gittestmvvm.R
+import com.rogerio.gittestmvvm.core.BaseViewModel
+import com.rogerio.gittestmvvm.core.InfoError
+import com.rogerio.gittestmvvm.feature.listRepos.presentation.model.GitRepoViewEntity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import timber.log.Timber
 

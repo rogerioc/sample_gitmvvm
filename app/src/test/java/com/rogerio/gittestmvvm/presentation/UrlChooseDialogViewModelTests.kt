@@ -1,10 +1,9 @@
-package com.rogerio.xingtest.presentation
+package com.rogerio.gittestmvvm.presentation
 
-import android.content.Intent
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.rogerio.xingtest.feature.listRepos.presentation.dialog.UrlChooseDialogViewModel
-import com.rogerio.xingtest.feature.listRepos.presentation.model.GitRepoViewEntity
+import com.rogerio.gittestmvvm.feature.listRepos.presentation.dialog.UrlChooseDialogViewModel
+import com.rogerio.gittestmvvm.feature.listRepos.presentation.model.GitRepoViewEntity
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

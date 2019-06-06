@@ -1,4 +1,4 @@
-package com.rogerio.xingtest
+package com.rogerio.gittestmvvm
 
 import androidx.multidex.MultiDexApplication
 import com.facebook.stetho.Stetho

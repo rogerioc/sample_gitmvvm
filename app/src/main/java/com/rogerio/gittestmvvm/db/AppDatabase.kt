@@ -1,4 +1,4 @@
-package com.rogerio.xingtest.db
+package com.rogerio.gittestmvvm.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

@@ -1,4 +1,4 @@
-package com.rogerio.xingtest.feature.listRepos.presentation
+package com.rogerio.gittestmvvm.feature.listRepos.presentation
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.rogerio.xingtest.R
-import com.rogerio.xingtest.databinding.ItemRepositorieBinding
-import com.rogerio.xingtest.feature.listRepos.presentation.model.GitRepoViewEntity
+import com.rogerio.gittestmvvm.R
+import com.rogerio.gittestmvvm.databinding.ItemRepositorieBinding
+import com.rogerio.gittestmvvm.feature.listRepos.presentation.model.GitRepoViewEntity
 
 class ReposAdapter: RecyclerView.Adapter<ReposAdapter.ViewHolder>() {
 

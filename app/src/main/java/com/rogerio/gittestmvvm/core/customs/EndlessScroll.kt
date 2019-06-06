@@ -1,4 +1,4 @@
-package com.rogerio.xingtest.core.customs
+package com.rogerio.gittestmvvm.core.customs
 
 import android.view.View
 import android.view.ViewGroup

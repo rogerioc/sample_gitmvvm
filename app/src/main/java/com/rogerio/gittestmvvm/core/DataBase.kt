@@ -1,10 +1,10 @@
-package com.rogerio.xingtest.core
+package com.rogerio.gittestmvvm.core
 
 import android.content.Context
 import androidx.room.Room
-import com.rogerio.xingtest.db.AppDatabase
+import com.rogerio.gittestmvvm.db.AppDatabase
 
-class DataBase() {
+class DataBase {
     companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null

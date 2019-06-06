@@ -1,11 +1,12 @@
-package com.rogerio.xingtest.core
+package com.rogerio.gittestmvvm.core
 
-import com.rogerio.xingtest.services.GitService
-import com.rogerio.xingtest.services.repository.GitReposDataSource
-import com.rogerio.xingtest.services.repository.GitReposRepository
+import android.content.Context
+import com.rogerio.gittestmvvm.services.GitService
+import com.rogerio.gittestmvvm.services.repository.GitReposDataSource
+import com.rogerio.gittestmvvm.services.repository.GitReposRepository
 
 object ServiceFactory {
-    public fun repositoryFactory(): GitReposDataSource {
-        return GitReposRepository(GitService().getService())
+    fun repositoryFactory(context: Context): GitReposDataSource {
+        return GitReposRepository(GitService().getService(), context)
     }
 }

@@ -1,4 +1,4 @@
-package com.rogerio.xingtest.helpers
+package com.rogerio.gittestmvvm.helpers
 
 import io.reactivex.Scheduler
 import io.reactivex.android.plugins.RxAndroidPlugins

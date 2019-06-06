@@ -1,8 +1,8 @@
-package com.rogerio.xingtest.feature.listRepos.presentation
+package com.rogerio.gittestmvvm.feature.listRepos.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.rogerio.xingtest.R
+import com.rogerio.gittestmvvm.R
 import kotlinx.android.synthetic.main.activity_start.*
 
 class StartActivity : AppCompatActivity() {
